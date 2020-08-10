@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_test/size_config.dart';
+import 'package:flutter_app_test/components/defaultbutton.dart';
+import 'package:flutter_app_test/screens/components/splash_content.dart';
+
+import '../../size_config.dart';
+import '../components/splash_content.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -7,6 +11,13 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  int currentPage = 0;
+  List<Map<String, String>> splashData = [
+    {"text": "Lorem ipsulem....1", "image": "assets/images/splashscreen1.png"},
+    {"text": "Lorem ipsulem....2", "image": "assets/images/splashscreen2.jpg"},
+    {"text": "Lorem ipsulem....3", "image": "assets/images/splashscreen3.jpg"},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -16,52 +27,67 @@ class _BodyState extends State<Body> {
           children: <Widget>[
             Expanded(
               flex: 3,
-              child: PageView.builder(itemBuilder: (context,index) => SplashContent(
-                image: "assets\images\steering_wheel.jpg",
-                text: "Of Germania",
+              child: PageView.builder(
+                onPageChanged: (value) {
+                  setState(() {
+                    currentPage = value;
+                  });
+                },
+                itemCount: splashData.length,
+                itemBuilder: (context, index) => SplashContent(
+                  image: splashData[index]["image"],
+                  text: splashData[index]['text'],
+                ),
               ),
-            )),
+            ),
             Expanded(
-              flex: 2,
-              child: SizedBox(),
+              flex: 1,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: getProportionateScreenWidth(20),
+                ),
+                child: Column(
+                  children: [
+                    Spacer(
+                      flex: 1,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        splashData.length,
+                        (index) => buildDot(index),
+                      ),
+                    ),
+                    Spacer(
+                      flex: 2,
+                    ),
+                    DefaultButton(
+                      text: "Continue",
+                      press: () {},
+                    ),
+                    Spacer(
+                      flex: 1,
+                    ),
+                  ],
+                ),
+              ),
             )
           ],
         ),
       ),
     );
   }
-}
 
-class SplashContent extends StatelessWidget {
-  const SplashContent({
-    Key key,
-    this.text,
-    this.image,
-  }) : super(key: key);
-  final String text, image;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Spacer(),
-        Text(
-          "CARing",
-          style: TextStyle(
-              fontSize: getProportionateScreenWidth(36),
-              color: Colors.blue,
-              fontWeight: FontWeight.bold),
-        ),
-        Text("Drive Safe!"),
-        Spacer(
-          flex: 2,
-        ),
-        Image.asset(
-          image
-          height: getProportionateScreenHeight(265),
-          width: getProportionateScreenWidth(235),
-        )
-      ],
+  AnimatedContainer buildDot(int index) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 200),
+      margin: EdgeInsets.only(right: 5),
+      height: 6,
+      width: currentPage == index ? 20 : 6,
+      decoration: BoxDecoration(
+        color: currentPage == index ? Colors.yellow[700] : Color(0xFFD8D8D8),
+        borderRadius: BorderRadius.circular(3),
+      ),
     );
   }
 }

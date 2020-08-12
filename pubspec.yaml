@@ -28,6 +28,8 @@ flutter:
     - assets/images/splashscreen1.png
     - assets/images/splashscreen2.jpg
     - assets/images/splashscreen3.jpg
+    - assets/images/facebook.png
+    - assets/images/google.png
   # fonts:
   #   - family: Schyler
   #     fonts:

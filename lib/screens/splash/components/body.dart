@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_test/components/defaultbutton.dart';
-import 'package:flutter_app_test/screens/components/splash_content.dart';
+import 'package:flutter_app_test/screens/splash/components/defaultbutton.dart';
+import 'package:flutter_app_test/screens/login/login_screen.dart';
+import 'package:flutter_app_test/screens/splash/components/splash_content.dart';
 
-import '../../size_config.dart';
+import 'package:flutter_app_test/size_config.dart';
 import '../components/splash_content.dart';
 
 class Body extends StatefulWidget {
@@ -63,7 +64,8 @@ class _BodyState extends State<Body> {
                     ),
                     DefaultButton(
                       text: "Continue",
-                      press: () {},
+                      press: () =>
+                          Navigator.pushNamed(context, LoginScreen.routeName),
                     ),
                     Spacer(
                       flex: 1,
@@ -85,7 +87,7 @@ class _BodyState extends State<Body> {
       height: 6,
       width: currentPage == index ? 20 : 6,
       decoration: BoxDecoration(
-        color: currentPage == index ? Colors.yellow[700] : Color(0xFFD8D8D8),
+        color: currentPage == index ? Color(0xFFFFB302) : Color(0xFFD8D8D8),
         borderRadius: BorderRadius.circular(3),
       ),
     );

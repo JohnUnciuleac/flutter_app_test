@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_app_test/size_config.dart';
+import 'package:CARing/size_config.dart';
 
 class SplashContent extends StatelessWidget {
   const SplashContent({
@@ -22,6 +22,7 @@ class SplashContent extends StatelessWidget {
           Text(
             "CARing",
             style: TextStyle(
+                fontFamily: 'Nunito',
                 fontSize: getProportionateScreenWidth(36),
                 color: Colors.white,
                 fontWeight: FontWeight.bold),

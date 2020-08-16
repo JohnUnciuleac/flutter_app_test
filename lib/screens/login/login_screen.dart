@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app_test/screens/splash/splash_screen.dart';
+import 'package:CARing/screens/splash/splash_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static String routeName = "/loginScreen";

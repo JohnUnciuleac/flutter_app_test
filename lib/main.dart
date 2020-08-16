@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_test/routes.dart';
-import 'package:flutter_app_test/screens/splash/splash_screen.dart';
+import 'package:CARing/routes.dart';
+import 'package:CARing/screens/splash/splash_screen.dart';
 
 import 'screens/splash/splash_screen.dart';
 

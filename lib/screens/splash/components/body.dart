@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_test/screens/splash/components/defaultbutton.dart';
-import 'package:flutter_app_test/screens/login/login_screen.dart';
-import 'package:flutter_app_test/screens/splash/components/splash_content.dart';
+import 'package:CARing/screens/splash/components/defaultbutton.dart';
+import 'package:CARing/screens/login/login_screen.dart';
+import 'package:CARing/screens/splash/components/splash_content.dart';
 
-import 'package:flutter_app_test/size_config.dart';
+import 'package:CARing/size_config.dart';
 import '../components/splash_content.dart';
 
 class Body extends StatefulWidget {
@@ -14,9 +14,20 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   int currentPage = 0;
   List<Map<String, String>> splashData = [
-    {"text": "Lorem ipsulem....1", "image": "assets/images/splashscreen1.png"},
-    {"text": "Lorem ipsulem....2", "image": "assets/images/splashscreen2.jpg"},
-    {"text": "Lorem ipsulem....3", "image": "assets/images/splashscreen3.jpg"},
+    {
+      "text":
+          'Găsește instant șoferul \nDoar pe baza plăcuței de înmatriculare',
+      "image": "assets/images/splashscreen1.png"
+    },
+    {
+      "text":
+          'Interacționează direct cu persoana \nPoți lua legătura directă cu orice șofer',
+      "image": "assets/images/splashscreen2.jpg"
+    },
+    {
+      "text": 'Comunitate \nFiecare persoană poate contribui',
+      "image": "assets/images/splashscreen3.jpg"
+    },
   ];
 
   @override
@@ -63,7 +74,7 @@ class _BodyState extends State<Body> {
                       flex: 2,
                     ),
                     DefaultButton(
-                      text: "Continue",
+                      text: "Continuă",
                       press: () =>
                           Navigator.pushNamed(context, LoginScreen.routeName),
                     ),

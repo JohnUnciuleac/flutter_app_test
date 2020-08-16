@@ -1,3 +1,4 @@
+import 'package:CARing/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:CARing/screens/splash/components/body.dart';
 import 'package:CARing/size_config.dart';
@@ -10,18 +11,7 @@ class SplashScreen extends StatelessWidget {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color(0xFF552586),
-            Color(0xFF552586),
-            Color(0xFF804FB3),
-          ],
-          stops: [0.3, 0.6, 0.9],
-        ),
-      ),
+      decoration: gradientCARing,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Body(),
